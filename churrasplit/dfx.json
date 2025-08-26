@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "canisters": {
+    "users": {
+      "main": "canisters/users/main.mo",
+      "type": "motoko",
+      "candid": "canisters/users/users.did"
+    },
+    "expenses": {
+      "main": "canisters/expenses/main.mo",
+      "type": "motoko",
+      "candid": "canisters/expenses/expenses.did"
+    },
+    "settlement": {
+      "main": "canisters/settlement/main.mo",
+      "type": "motoko",
+      "candid": "canisters/settlement/settlement.did"
+    },
+    "history": {
+      "main": "canisters/history/main.mo",
+      "type": "motoko",
+      "candid": "canisters/history/history.did"
+    }
+  }
+}
