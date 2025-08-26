@@ -1,3 +1,4 @@
+// path: churrasplit/frontend/src/components/ExpenseList.tsx
 import React from "react";
 
 type Expense = {
@@ -22,18 +23,19 @@ export default function ExpenseList({
   return (
     <div>
       <h3>Despesas</h3>
-      <ul>
+      <ul className="list">
         {expenses.map((e) => (
-          <li key={e.id}>
-            <strong>{e.desc}</strong> — R$ {(e.amount / 100).toFixed(2)}<br />
-            <span style={{ fontSize: 12 }}>
-              Pagou: {e.payer} | Participantes: {e.participants.join(", ")}
+          <li key={e.id} className="list-item">
+            <strong>{e.desc}</strong> — R$ {(e.amount / 100).toFixed(2)}
+            <br />
+            <span style={{ fontSize: 14, color: "#666" }}>
+              Pagou: {e.payer} | Para: {e.participants.join(", ")}
             </span>
           </li>
         ))}
       </ul>
-      <button onClick={onAddExpense}>Adicionar Despesa</button>{" "}
-      <button onClick={onBalances}>Ver Saldos</button>
+      <button className="btn" onClick={onAddExpense}>Adicionar Despesa</button>
+      <button className="btn" onClick={onBalances}>Ver Saldos</button>
     </div>
   );
 }

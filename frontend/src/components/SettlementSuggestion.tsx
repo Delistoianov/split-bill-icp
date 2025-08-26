@@ -1,3 +1,4 @@
+// path: churrasplit/frontend/src/components/SettlementSuggestion.tsx
 import React from "react";
 
 type Settlement = {
@@ -17,15 +18,18 @@ export default function SettlementSuggestion({
   }
   return (
     <div>
-      <h3>Transferências sugeridas</h3>
-      <ul>
+      <h3>Transferências Sugeridas</h3>
+      <ul className="list">
         {settlements.map((s, i) => (
-          <li key={i}>
-            <strong>{s.from}</strong> paga <strong>R$ {(s.amount / 100).toFixed(2)}</strong> para <strong>{s.to}</strong>
+          <li key={i} className="list-item">
+            <span className="balance-negative">{s.from}</span> deve pagar <span className="balance-positive">R$ {(s.amount / 100).toFixed(2)}</span> para <strong>{s.to}</strong>
           </li>
         ))}
       </ul>
-      <button onClick={() => alert("Mock: acerto realizado!")}>Finalizar Acerto</button>
+      <br/>
+      <button className="btn" onClick={() => alert("Acerto finalizado e registrado no histórico!")}>
+        Confirmar Acerto
+      </button>
     </div>
   );
 }

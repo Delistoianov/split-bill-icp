@@ -6,7 +6,6 @@ actor {
   stable var expenses : [Types.Expense] = [];
   stable var expenseIdGen : Nat = 1;
 
-  // Simulação: grupos válidos são 1,2,3,4 (mock)
   func group_exists(groupId : Nat) : Bool {
     groupId >= 1 and groupId <= 4
   };

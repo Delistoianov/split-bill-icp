@@ -1,3 +1,4 @@
+// path: churrasplit/frontend/src/components/BalanceTable.tsx
 import React from "react";
 
 type Balance = {
@@ -15,34 +16,31 @@ export default function BalanceTable({
 }) {
   return (
     <div>
-      <h3>Saldos</h3>
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <h3>Balanço do Grupo</h3>
+      <table className="table">
         <thead>
           <tr>
             <th>Participante</th>
-            <th>Saldo</th>
+            <th>Situação</th>
           </tr>
         </thead>
         <tbody>
           {balances.map((b) => (
             <tr key={b.user}>
               <td>{b.user}</td>
-              <td
-                style={{
-                  color: b.net > 0 ? "green" : b.net < 0 ? "red" : "black",
-                }}
-              >
+              <td className={b.net > 0 ? "balance-positive" : b.net < 0 ? "balance-negative" : ""}>
                 {b.net > 0
-                  ? `Receber R$ ${(b.net / 100).toFixed(2)}`
+                  ? `Recebe R$ ${(b.net / 100).toFixed(2)}`
                   : b.net < 0
-                  ? `Pagar R$ ${(-b.net / 100).toFixed(2)}`
-                  : "OK"}
+                  ? `Paga R$ ${(-b.net / 100).toFixed(2)}`
+                  : "Zerado"}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={onSettle}>Gerar Acerto</button>
+      <br/>
+      <button className="btn" onClick={onSettle}>Sugerir Acertos</button>
     </div>
   );
 }

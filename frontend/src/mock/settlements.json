@@ -1,0 +1,32 @@
+[
+  {
+    "groupId": 1,
+    "from": "Carol",
+    "to": "Alice",
+    "amount": 2000
+  },
+  {
+    "groupId": 1,
+    "from": "Bob",
+    "to": "Alice",
+    "amount": 1000
+  },
+  {
+    "groupId": 1,
+    "from": "Danilo",
+    "to": "Alice",
+    "amount": 1000
+  },
+  {
+    "groupId": 2,
+    "from": "Alice",
+    "to": "Eve",
+    "amount": 3000
+  },
+  {
+    "groupId": 2,
+    "from": "Bob",
+    "to": "Eve",
+    "amount": 3000
+  }
+]

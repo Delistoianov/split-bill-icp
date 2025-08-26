@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "groupId": 1,
+    "payer": "Alice",
+    "amount": 12000,
+    "desc": "Carne",
+    "participants": ["Alice", "Bob", "Carol", "Danilo"],
+    "createdAt": 1692900000
+  },
+  {
+    "id": 2,
+    "groupId": 1,
+    "payer": "Bob",
+    "amount": 4000,
+    "desc": "Carvão",
+    "participants": ["Alice", "Bob", "Carol", "Danilo"],
+    "createdAt": 1692900100
+  },
+  {
+    "id": 3,
+    "groupId": 1,
+    "payer": "Carol",
+    "amount": 6000,
+    "desc": "Bebidas",
+    "participants": ["Alice", "Bob", "Carol", "Danilo"],
+    "createdAt": 1692900200
+  },
+  {
+    "id": 4,
+    "groupId": 2,
+    "payer": "Eve",
+    "amount": 9000,
+    "desc": "Pizza",
+    "participants": ["Alice", "Bob", "Eve"],
+    "createdAt": 1692900300
+  }
+]

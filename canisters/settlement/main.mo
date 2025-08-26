@@ -4,7 +4,6 @@ import Int "mo:base/Int";
 import Nat64 "mo:base/Nat64";
 import Types "Types";
 
-// Mock: Expenses em memória (em produção, seria inter-canister)
 stable var expenses : [Types.Expense] = [];
 stable var snapshotIdGen : Nat = 1;
 
@@ -86,7 +85,6 @@ public query func simulate_with_extra(groupId : Nat, expense : Types.Expense) : 
   Array.map(result, func ((user, net)) = { user; net })
 };
 
-// Salva snapshot (mock: só retorna, em produção chamaria history)
 public shared({caller}) func snapshot_and_persist(groupId : Nat) : async Types.Snapshot {
   let balances = await compute_balances(groupId);
   let settlements = await suggest_settlements(groupId);

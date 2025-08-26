@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Churrasco do Sábado",
+    "members": ["Alice", "Bob", "Carol", "Danilo"]
+  },
+  {
+    "id": 2,
+    "name": "Pizza da Galera",
+    "members": ["Alice", "Bob", "Eve"]
+  }
+]

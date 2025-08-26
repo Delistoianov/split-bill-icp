@@ -1,3 +1,4 @@
+// path: churrasplit/frontend/src/App.tsx
 import React, { useState } from "react";
 import groups from "./mock/groups.json";
 import expenses from "./mock/expenses.json";
@@ -7,6 +8,7 @@ import GroupCard from "./components/GroupCard";
 import ExpenseList from "./components/ExpenseList";
 import BalanceTable from "./components/BalanceTable";
 import SettlementSuggestion from "./components/SettlementSuggestion";
+import logo from "./assets/logo.png";
 
 type Page = "home" | "group" | "balances" | "settlements";
 
@@ -17,11 +19,15 @@ export default function App() {
   const group = groups.find((g) => g.id === groupId);
 
   return (
-    <div style={{ fontFamily: "sans-serif", maxWidth: 600, margin: "0 auto" }}>
-      <h1>Churrasplit</h1>
+    <div className="container">
+      <header className="app-header">
+        <img src={logo} alt="Churrasplit Logo" className="app-logo" />
+        <h1>Churrasplit</h1>
+      </header>
+
       {page === "home" && (
-        <>
-          <h2>Grupos</h2>
+        <div className="card">
+          <h2>Meus Grupos</h2>
           {groups.map((g) => (
             <GroupCard
               key={g.id}
@@ -32,37 +38,52 @@ export default function App() {
               }}
             />
           ))}
-        </>
+        </div>
       )}
+
       {page === "group" && group && (
-        <>
-          <button onClick={() => setPage("home")}>← Voltar</button>
-          <h2>{group.name}</h2>
+        <div className="card">
+          <div className="nav-header">
+            <button className="btn btn-secondary" onClick={() => setPage("home")}>
+              ← Voltar
+            </button>
+            <h2>{group.name}</h2>
+          </div>
           <ExpenseList
             expenses={expenses.filter((e) => e.groupId === group.id)}
-            onAddExpense={() => alert("Mock: abrir modal de despesa")}
+            onAddExpense={() => alert("Abrir modal para adicionar despesa.")}
             onBalances={() => setPage("balances")}
           />
-        </>
+        </div>
       )}
+
       {page === "balances" && group && (
-        <>
-          <button onClick={() => setPage("group")}>← Voltar</button>
-          <h2>Saldos - {group.name}</h2>
+        <div className="card">
+          <div className="nav-header">
+            <button className="btn btn-secondary" onClick={() => setPage("group")}>
+              ← Voltar
+            </button>
+            <h2>Saldos - {group.name}</h2>
+          </div>
           <BalanceTable
             balances={balances.filter((b) => b.groupId === group.id)}
             onSettle={() => setPage("settlements")}
           />
-        </>
+        </div>
       )}
+
       {page === "settlements" && group && (
-        <>
-          <button onClick={() => setPage("balances")}>← Voltar</button>
-          <h2>Sugestões de Acerto</h2>
+        <div className="card">
+          <div className="nav-header">
+            <button className="btn btn-secondary" onClick={() => setPage("balances")}>
+              ← Voltar
+            </button>
+            <h2>Sugestões de Acerto</h2>
+          </div>
           <SettlementSuggestion
             settlements={settlements.filter((s) => s.groupId === group.id)}
           />
-        </>
+        </div>
       )}
     </div>
   );

@@ -1,0 +1,37 @@
+[
+  {
+    "groupId": 1,
+    "user": "Alice",
+    "net": 2000
+  },
+  {
+    "groupId": 1,
+    "user": "Bob",
+    "net": -1000
+  },
+  {
+    "groupId": 1,
+    "user": "Carol",
+    "net": -2000
+  },
+  {
+    "groupId": 1,
+    "user": "Danilo",
+    "net": -1000
+  },
+  {
+    "groupId": 2,
+    "user": "Alice",
+    "net": -3000
+  },
+  {
+    "groupId": 2,
+    "user": "Bob",
+    "net": -3000
+  },
+  {
+    "groupId": 2,
+    "user": "Eve",
+    "net": 6000
+  }
+]

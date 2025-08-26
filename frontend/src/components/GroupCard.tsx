@@ -1,3 +1,4 @@
+// path: churrasplit/frontend/src/components/GroupCard.tsx
 import React from "react";
 
 type Group = {
@@ -16,16 +17,17 @@ export default function GroupCard({
   return (
     <div
       style={{
-        border: "1px solid #ccc",
-        margin: 8,
-        padding: 12,
-        borderRadius: 8,
+        border: "1px solid #eee",
+        padding: "16px",
+        margin: "8px 0",
+        borderRadius: "var(--border-radius)",
         cursor: "pointer",
+        backgroundColor: "#fafafa"
       }}
       onClick={onClick}
     >
       <strong>{group.name}</strong>
-      <div style={{ fontSize: 12, color: "#666" }}>
+      <div style={{ fontSize: 14, color: "#555" }}>
         {group.members.length} participantes
       </div>
     </div>
