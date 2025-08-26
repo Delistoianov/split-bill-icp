@@ -16,14 +16,8 @@ export default function GroupCard({
 }) {
   return (
     <div
-      style={{
-        border: "1px solid #eee",
-        padding: "16px",
-        margin: "8px 0",
-        borderRadius: "var(--border-radius)",
-        cursor: "pointer",
-        backgroundColor: "#fafafa"
-      }}
+      className="list-item"
+      style={{ cursor: "pointer" }}
       onClick={onClick}
     >
       <strong>{group.name}</strong>

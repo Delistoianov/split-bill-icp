@@ -8,6 +8,7 @@ import GroupCard from "./components/GroupCard";
 import ExpenseList from "./components/ExpenseList";
 import BalanceTable from "./components/BalanceTable";
 import SettlementSuggestion from "./components/SettlementSuggestion";
+import AddExpenseModal from "./components/AddExpenseModal";
 import logo from "./assets/logo.png";
 
 type Page = "home" | "group" | "balances" | "settlements";
@@ -15,8 +16,19 @@ type Page = "home" | "group" | "balances" | "settlements";
 export default function App() {
   const [page, setPage] = useState<Page>("home");
   const [groupId, setGroupId] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const group = groups.find((g) => g.id === groupId);
+
+  const handleSaveExpense = (expense: { desc: string; amount: number; payer: string; participants: string[] }) => {
+    console.log("Nova despesa (mock):", {
+      id: Math.random(),
+      groupId: groupId,
+      ...expense,
+      createdAt: Date.now(),
+    });
+    alert(`Despesa "${expense.desc}" adicionada! (Mock)`);
+  };
 
   return (
     <div className="container">
@@ -51,7 +63,7 @@ export default function App() {
           </div>
           <ExpenseList
             expenses={expenses.filter((e) => e.groupId === group.id)}
-            onAddExpense={() => alert("Abrir modal para adicionar despesa.")}
+            onAddExpense={() => setIsModalOpen(true)}
             onBalances={() => setPage("balances")}
           />
         </div>
@@ -84,6 +96,15 @@ export default function App() {
             settlements={settlements.filter((s) => s.groupId === group.id)}
           />
         </div>
+      )}
+
+      {group && (
+          <AddExpenseModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            onSave={handleSaveExpense}
+            group={group}
+          />
       )}
     </div>
   );

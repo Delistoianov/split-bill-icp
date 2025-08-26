@@ -34,8 +34,14 @@ export default function ExpenseList({
           </li>
         ))}
       </ul>
-      <button className="btn" onClick={onAddExpense}>Adicionar Despesa</button>
-      <button className="btn" onClick={onBalances}>Ver Saldos</button>
+      <div className="flex justify-between">
+        <button className="btn" onClick={onAddExpense}>
+          Adicionar Despesa
+        </button>
+        <button className="btn" onClick={onBalances}>
+          Ver Saldos
+        </button>
+      </div>
     </div>
   );
 }
